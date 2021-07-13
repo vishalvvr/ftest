@@ -1,0 +1,6 @@
+{
+"fontname" : "liberation",
+"lang" : ["en","de","el"],
+"font_family_list" : ["Liberation Serif", "Liberation Sans", "Liberation Mono"],
+"font_conf_list" : ["59-liberation-mono.conf","59-liberation-sans.conf","59-liberation-serif.conf"]
+}

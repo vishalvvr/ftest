@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  roles:
+  - role: standard-test-basic
+    tags:
+    - classic
+    repositories:
+    - repo: "https://pagure.io/font_ci_testing.git"
+      dest: "fonttest"
+      version: dev
+    tests:
+    - smoke:
+        dir: fonttest/smoke
+    required_packages:
+    - python3
+    - fontconfig
+    - git
