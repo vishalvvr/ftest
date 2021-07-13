@@ -90,6 +90,9 @@ class fonttest(unittest.TestCase):
                 sys.stdout.write(err)
                 sys.exit(1)
 
+    def test_cover(self):
+        print("hello test")
+        self.assertEqual(True,True)
 
 if __name__ == "__main__":    
     unittest.main()
