@@ -20,9 +20,6 @@ class fonttest(unittest.TestCase):
         font_filepath = font_filepath.split("\n")
         cls.font_file_list = list(filter(None, font_filepath))
         
-        with open('mylog.txt', 'w') as fp:
-            pass
-        
         if err:
             sys.stdout.write(err)
             sys.exit(1)
@@ -50,6 +47,9 @@ class fonttest(unittest.TestCase):
             
             if set(self.config['font_conf_list']).issubset(set(font_conflist)):
                 self.assertLessEqual(len(self.config['font_conf_list']), len(font_conflist))
+            
+            print(font_conflist)
+
         else:
             sys.stdout.write(err)
             sys.exit(1)
@@ -67,7 +67,9 @@ class fonttest(unittest.TestCase):
             font_family_list = list(filter(None, font_family_list))
             font_family_list = set([font.strip() for font in font_family_list])
             if set(self.config['font_family_list']).issubset(font_family_list):
-                self.assertLessEqual(len(self.config['font_family_list']), len(font_family))
+                self.assertLessEqual(len(self.config['font_family_list']), len(font_family_list))
+            
+            print(font_family_list)
         else:
             sys.stdout.write(err)
             sys.exit(1)
@@ -86,13 +88,14 @@ class fonttest(unittest.TestCase):
                 font_langlist[0] = font_langlist[0].replace("lang: ","")
                 if set(self.config['lang']).issubset(set(font_langlist)):
                     self.assertLessEqual(len(self.config['lang']), len(font_langlist))
+                
+                print(font_langlist)
+                
             else:
                 sys.stdout.write(err)
                 sys.exit(1)
 
-    def test_cover(self):
-        print("hello test")
-        self.assertEqual(True,True)
+    
 
 if __name__ == "__main__":    
     unittest.main()
